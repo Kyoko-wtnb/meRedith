@@ -107,6 +107,10 @@ meredith <- function(data, scale=FALSE, transfer=FALSE, takepc=50, explainedVar=
   return(tSNE.out)
 }
 
+#` DBSCAN with silhouette score optimization
+#' @param 
+#' @return
+#' @export
 dbscan_SH<-function(data,eps=NULL,showplot=F,prop_outliers=.1,eps_res=500,eps_range=NULL){
   #require(fpc)
   #require(cluster)

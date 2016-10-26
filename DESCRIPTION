@@ -1,6 +1,6 @@
 Package: meRedith
 Title: MEREDITH (Multi-omic data integration approach)
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: c(person("Kyoko", "Watanabe", email = "k.watanabe@vu.nl", role = c("aut", "cre")),
             person("Erdogan", "Taskesen", email = "e.taskesen@vu.nl", role = c("sut")))
 Maintainer: Kyoko Watanabe <k.watanabe@vu.nl>
