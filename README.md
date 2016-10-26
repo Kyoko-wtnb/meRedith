@@ -6,9 +6,15 @@ Please refer [E. Taskesen et al. 2016](http://www.nature.com/articles/srep24949)
 ## Install meRedith package
 The package contains two functions `mederith` and `dbscan_SH`.
 
-First of all, install dependent libraries.
-```{r}
+1. Install dependecies
+..```{r}
 install.packages("fpc")
 install.packages("cluster")
 install.packages("Rtsne")
+```
+2. Install meRedith
+..```(r)
+install.packages("devtools")
+library(devtools)
+install_github("Kyoko-wtnb/meRedith")
 ```
