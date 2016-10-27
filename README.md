@@ -3,12 +3,6 @@ MEREDITH is an approach to integrate multiple omics data sets (e.g. RNAseq, DNA 
 
 Please refer [Taskesen et al. 2016](http://www.nature.com/articles/srep24949) for detail methods.
 
-## Contents
-- [Installing meRedith](##Install)
-- [Example with TCGA data sets](##Example)
-- [Citation](##Citation)
-- [References](##References)
-
 ## Install
 The package contains two functions `mederith` and `dbscan_SH` with three dependencies. Please install them first if you don't have those libraries. The package also include an example data sets from TCGA <sub>2</sub>. They will be used in the [example](##Example-with-TCGA-data-sets) section.
 
@@ -91,6 +85,13 @@ Results of full data sets of TGCA can be browsed at [http://pancancer-map.ewi.tu
 Please cite the following airtive when you use MEREDITH.
 
 Taskesen, E., Huisman, S.M.H., Mahfouz, A., Krijthe, J.K., de Ridder, J., van de Stolpe, A., van den Akker, E., Verheagh, W., Reinders, M.J.Y. 2016. Pan-cancer subtyping in a 2D-map shows substructures that are driven by specific combinations of molecular characteristics. *Scientific Reports.* 6:24949. [doi:10.1038/srep24949](https://www.ncbi.nlm.nih.gov/pubmed/27109935).
+
+## Contact
+Kyoko Watanabe: k.watanabe@vu.nl
+Erdogan Taskesen: e.taskesen@vu.nl
+
+Dept. Complex Trait Genetics ([CTGlab](http://ctg.cncr.nl/))
+VU University Amsterdam
 
 ## References
 1. Maaten, L.J.P.v.d. and Hinton, G.E. 2008. Visualizing High-Dimentional Data Using t-SNE. *Journal of Machine Learning Research.* 9, 2579-2605. [link](http://www.cs.toronto.edu/~hinton/absps/tsne.pdf).

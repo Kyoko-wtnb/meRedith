@@ -10,3 +10,4 @@ License: What license is it under?
 Encoding: UTF-8
 LazyData: true
 Imports: Rtsne, fpc, cluster
+RoxygenNote: 5.0.1.9000

@@ -1,12 +1,13 @@
-#' MEREDITH combines a list of input data (data.frame or matrix) and perform tSNE
-#' @param data list of matrix or data frame (Note that even when input is one matrix/dataframe, use list())
-#' @param scale option for PCA (see ?prcomp). Default is FALSE
-#' @param transfer logical. TRUE if the input matrix/data frame have to be transfered. Default is FALSE.
-#' @param takepc the number of PC to keep. Default is 50.
-#' @param explainedvar FALSE or percentage of explained variance to keep. Default is FALSE. If this argument is value between 0 and 100, takepc will be ignored.
-#' @param nTSNE The number of run for tSNE. Default is 100.
-#' @param dims,initial_dims,preplexity,theta,max_iter option of Rtsne (see ?Rtse).
-#' @return list same as Rtsne output (see ?Rtsne for details)
+#' @title MEREDITH (multi omic data integration approach)
+#' @description MEREDITH combines a list of input data (data.frame or matrix) and perform tSNE
+#' @param data List of matrix or data frame. (Note that even when input is one matrix/dataframe, use list())
+#' @param Logical. The scale option for PCA (see ?prcomp). Default is FALSE
+#' @param transfer Logical. TRUE if the input matrix/data frame have to be transfered. Default is FALSE.
+#' @param takepc Integer. The number of PC to keep. Default is 50.
+#' @param explainedvar FALSE or a value. The percentage of explained variance to keep. Default is FALSE. If this argument is value between 0 and 100, takepc will be ignored.
+#' @param nTSNE Integer. The number of run for tSNE. Default is 100.
+#' @param dims,initial_dims,preplexity,theta,max_iter option of Rtsne (see ?Rtsne).
+#' @return list of data same as the Rtsne output (see ?Rtsne for details)
 #' @export
 meredith <- function(data, scale=FALSE, transfer=FALSE, takepc=50, explainedVar=FALSE, nTSNE=100, dims=2, initial_dims=50, perplexity = 30, theta=0.5, max_iter=1000){
   #require(Rtsne)
@@ -105,52 +106,4 @@ meredith <- function(data, scale=FALSE, transfer=FALSE, takepc=50, explainedVar=
     cat("\nCompleted!!\n")
   }
   return(tSNE.out)
-}
-
-#` DBSCAN with silhouette score optimization
-#' @param 
-#' @return
-#' @export
-dbscan_SH<-function(data,eps=NULL,showplot=F,prop_outliers=.1,eps_res=500,eps_range=NULL){
-  #require(fpc)
-  #require(cluster)
-  data<-data.frame(data)
-  if(is.null(eps)){
-    cat("Optimising eps: ")
-    if(is.null(eps_range)){
-      eps_scale<-mean(apply(data,2,sd)) # makes the search scale independent
-      epsvec<-seq(0,4,length.out=eps_res)*eps_scale # space to search for eps parameter
-    } else epsvec<-seq(eps_range[1],eps_range[2],length.out=eps_res)
-    silvec<-numeric(length(epsvec))
-    for(i in 1:length(epsvec)){
-      eps<-epsvec[i]
-      DBcl<-dbscan(data,eps) # quite fast
-      cl<-DBcl$cluster
-      cat(".")
-      if(all(cl==1)) break else if(max(cl)==1) silvec[i]<-0 else
-        if(all(cl==0)) silvec[i]<-0 else
-          if(mean(cl==0)>prop_outliers) silvec[i]<-0 else{
-            S<-silhouette(x=cl[cl!=0],dist=dist(data[cl!=0,])) # exclude the 0's
-            silvec[i]<-summary(S)$avg.width
-          }
-    }
-    cat("\n")
-    if(showplot){
-      if(ncol(data)==2)par(mfrow=c(1,2))
-      end<-length(silvec)-which(cumsum(rev(silvec))>0)[1]+10
-      plot(epsvec[1:end],silvec[1:end],xlab="eps value",ylab="silhouette score")
-    }
-    eps<-epsvec[which.max(silvec)]
-    if(showplot){
-      abline(h=max(silvec),lty=2)
-      abline(v=eps,lty=2)
-    }
-  }
-  DBcl<-dbscan(data,eps)$cluster
-  if(showplot){
-    plot(data,col=c("lightgrey",sample(rainbow(max(DBcl),v=.8)))[DBcl+1],pch=16)
-    par(mfrow=c(1,1))
-  }
-  cat("Used eps: ",eps,"\n")
-  return(DBcl)
 }
