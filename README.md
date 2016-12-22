@@ -37,7 +37,7 @@ data(package="meRedith")
 - `dataME` : normalized DNA methylation
 - `dataMIR` : normalized expression level or microRNA
 - `dataCN` : normalized copy number variations
-- `sample_labels` : cancer labels of samples
+- `samples` : cancer labels of samples
 
 ### Preparation of own data
 When you perform meredith with your own data, please prepare either data.frame or matrix. All data sets have to have the same number of features. In the example, all data sets have the same number of sample size but the number of features can varies. Most importantly, input data should be normalized propery.
