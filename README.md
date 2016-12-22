@@ -88,10 +88,10 @@ Taskesen, E., Huisman, S.M.H., Mahfouz, A., Krijthe, J.K., de Ridder, J., van de
 
 ## Contact
 Kyoko Watanabe: k.watanabe@vu.nl
-Erdogan Taskesen: e.taskesen@vu.nl
+, Erdogan Taskesen: e.taskesen@vu.nl
 
 Dept. Complex Trait Genetics ([CTGlab](http://ctg.cncr.nl/))
-VU University Amsterdam
+, VU University Amsterdam
 
 ## References
 1. Maaten, L.J.P.v.d. and Hinton, G.E. 2008. Visualizing High-Dimentional Data Using t-SNE. *Journal of Machine Learning Research.* 9, 2579-2605. [link](http://www.cs.toronto.edu/~hinton/absps/tsne.pdf).
